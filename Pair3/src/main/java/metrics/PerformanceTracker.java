@@ -1,27 +1,28 @@
 package metrics;
 
 public class PerformanceTracker {
-    private long comparisons = 0;
-    private long swaps = 0;
+    private long comparisons;
+    private long arrayReads;
+    private long arrayWrites;
+    private long assignments;
 
-    public void incrementComparisons() {
-        comparisons++;
-    }
+    private long usedMemoryBytes;
 
-    public void incrementSwaps() {
-        swaps++;
-    }
+    public void incComparison() { comparisons++; }
+    public void incRead() { arrayReads++; }
+    public void incWrite() { arrayWrites++; }
+    public void incAssign() { assignments++; }
 
-    public long getComparisons() {
-        return comparisons;
-    }
+    public long getComparisons() { return comparisons; }
+    public long getArrayReads() { return arrayReads; }
+    public long getArrayWrites() { return arrayWrites; }
+    public long getAssignments() { return assignments; }
 
-    public long getSwaps() {
-        return swaps;
-    }
+    public void setUsedMemoryBytes(long usedMemoryBytes) { this.usedMemoryBytes = usedMemoryBytes; }
+    public long getUsedMemoryBytes() { return usedMemoryBytes; }
 
     public void reset() {
-        comparisons = 0;
-        swaps = 0;
+        comparisons = arrayReads = arrayWrites = assignments = 0;
+        usedMemoryBytes = 0;
     }
 }

@@ -1,22 +1,44 @@
 package algorithms;
 
+import metrics.PerformanceTracker;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import main.java.algorithms.KadaneAlgorithm;
-import org.junit.jupiter.api.Test;
-
 public class KadaneAlgorithmTest {
+
     @Test
-    public void testMaxSubArraySum() {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int result = KadaneAlgorithm.maxSubArraySum(nums);
-        Assertions.assertEquals(6, result);
+    void classicExample_sumAndIndices() {
+        int[] a = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        var res = KadaneAlgorithm.maxSubarray(a, new PerformanceTracker());
+
+        assertEquals(6, res.maxSum);
+        assertEquals(3, res.startIndex);
+        assertEquals(6, res.endIndex);
     }
 
     @Test
-    public void testSingleElement() {
-        int[] nums = {1};
-        int result = KadaneAlgorithm.maxSubArraySum(nums);
-        Assertions.assertEquals(1, result);
+    void allNegative_pickLargest() {
+        int[] a = {-8,-3,-6,-2,-5,-4};
+        var res = KadaneAlgorithm.maxSubarray(a, new PerformanceTracker());
+
+        assertEquals(-2, res.maxSum);
+        assertEquals(3, res.startIndex);
+        assertEquals(3, res.endIndex);
+    }
+
+    @Test
+    void allPositive_fullArray() {
+        int[] a = {1,2,3,4};
+        var res = KadaneAlgorithm.maxSubarray(a, new PerformanceTracker());
+
+        assertEquals(10, res.maxSum);
+        assertEquals(0, res.startIndex);
+        assertEquals(3, res.endIndex);
+    }
+
+    @Test
+    void empty_throws() {
+        assertThrows(IllegalArgumentException.class,
+                () -> KadaneAlgorithm.maxSubarray(new int[0], new PerformanceTracker()));
     }
 }
