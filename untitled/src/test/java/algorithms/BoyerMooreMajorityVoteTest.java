@@ -1,4 +1,4 @@
-package test.java.algorithms;
+package algorithms;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,13 +10,13 @@ public class BoyerMooreMajorityVoteTest {
     public void testMajorityElement() {
         int[] nums = {3, 3, 4, 2, 4, 4, 2, 4, 4};
         int result = BoyerMooreMajorityVote.majorityElement(nums);
-        assertEquals(4, result);
+        Assertions.assertEquals(4, result);
     }
 
     @Test
     public void testNoMajorityElement() {
         int[] nums = {3, 1, 2};
         int result = BoyerMooreMajorityVote.majorityElement(nums);
-        assertNotEquals(-1, result);
+        Assertions.assertNotEquals(-1, result);
     }
 }

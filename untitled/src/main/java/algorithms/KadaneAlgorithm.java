@@ -1,4 +1,4 @@
-package main.java.algorithms;
+package algorithms;
 
 public class KadaneAlgorithm {
     public static int maxSubArraySum(int[] nums) {

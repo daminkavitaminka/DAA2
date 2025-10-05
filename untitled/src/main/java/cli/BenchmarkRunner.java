@@ -1,4 +1,4 @@
-package main.java.cli;
+package cli;
 
 import main.java.algorithms.BoyerMooreMajorityVote;
 import main.java.algorithms.KadaneAlgorithm;

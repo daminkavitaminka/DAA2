@@ -1,4 +1,4 @@
-package main.java.algorithms;
+package algorithms;
 
 public class BoyerMooreMajorityVote {
     public static int majorityElement(int[] nums) {

@@ -1,4 +1,4 @@
-package main.java.metrics;
+package metrics;
 
 public class PerformanceTracker {
     private long comparisons = 0;
