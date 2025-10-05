@@ -39,9 +39,7 @@ public final class KadaneAlgorithm {
             }
             else {
                 maxEndingHere = maxEndingHere + val; t.incAssign();
-            }
-
-            t.incComparison();
+            } t.incComparison();
 
             if (maxEndingHere > maxSoFar) {
                 maxSoFar = maxEndingHere; t.incAssign();
